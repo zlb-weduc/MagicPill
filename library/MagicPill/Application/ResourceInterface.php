@@ -37,5 +37,5 @@ namespace MagicPill\Application\Resource;
 
 interface ResourceInterface
 {
-    public function init(\MagicPill\Core\Object $application);
+    public function init(\MagicPill\Core\MagicPillObject $application);
 }

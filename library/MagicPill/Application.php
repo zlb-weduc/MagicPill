@@ -38,7 +38,7 @@ namespace MagicPill;
 use MagicPill\Application\Resource\ResourceManager;
 use MagicPill\Exception\ExceptionFactory;
 
-class Application extends \MagicPill\Core\Object
+class Application extends \MagicPill\Core\MagicPillObject
 {
     /**
      * @var \MagicPill\Application

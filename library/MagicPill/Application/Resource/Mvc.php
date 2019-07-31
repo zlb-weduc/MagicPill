@@ -39,10 +39,10 @@ class Mvc extends ResourceAbstract
 {
     /**
      * Registry initialization
-     * @param \MagicPill\Core\Object $application
-     * @return \MagicPill\Core\Object
+     * @param \MagicPill\Core\MagicPillObject $application
+     * @return \MagicPill\Core\MagicPillObject
      */
-    public function init(\MagicPill\Core\Object $application)
+    public function init(\MagicPill\Core\MagicPillObject $application)
     {
         $config = $application->getConfig();
         echo "MVC in tha house yo!";

@@ -35,11 +35,11 @@
 
 namespace MagicPill\Util\Log;
 
-use MagicPill\Core\Object;
+use MagicPill\Core\MagicPillObject;
 use MagicPill\Collection\ObjectCollection;
 use MagicPill\Exception\ExceptionFactory;
 
-class Logger extends Object
+class Logger extends MagicPillObject
 {
     /**
      * @var array
@@ -53,7 +53,7 @@ class Logger extends Object
     
     /**
      * Constructor
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      */
     public function __construct($config = array()) 
     {
@@ -62,7 +62,7 @@ class Logger extends Object
     
     /**
      * Configures the logger instance
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      * @throws LoggerInvalidConfigurationFormatException
      * @throws LoggerUnknownWriterException
      * @throws 
@@ -246,7 +246,7 @@ class Logger extends Object
     /**
      * Retrieves a writer object based on the classname
      * @param string $className
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      * @return \MagicPill\Util\Log\Formatter\FormatterInterface | null
      */
     protected function buildWriterObject($className, $config = array())

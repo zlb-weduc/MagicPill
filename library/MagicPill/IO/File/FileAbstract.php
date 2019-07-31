@@ -35,8 +35,8 @@
 
 namespace MagicPill\IO\File;
 
-use MagicPill\Core\Object;
-abstract class FileAbstract extends Object
+use MagicPill\Core\MagicPillObject;
+abstract class FileAbstract extends MagicPillObject
 {
     /**
      * @var resource

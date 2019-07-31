@@ -35,10 +35,10 @@
 
 namespace MagicPill\Util\Log;
 
-use MagicPill\Core\Object;
+use MagicPill\Core\MagicPillObject;
 use MagicPill\Exception\ExceptionFactory;
 
-class LogManager extends Object
+class LogManager extends MagicPillObject
 {
     /**
      * @var array

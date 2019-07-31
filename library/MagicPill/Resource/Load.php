@@ -38,7 +38,7 @@ namespace MagicPill\Resource;
 use MagicPill\Collection;
 use MagicPill\Exception\ExceptionFactory;
 
-class Load extends \MagicPill\Core\Object
+class Load extends \MagicPill\Core\MagicPillObject
 {
    /**
      * Base class name to check inheritance

@@ -35,12 +35,12 @@
 
 namespace MagicPill\Util\Log\Writer;
 
-use MagicPill\Core\Object;
+use MagicPill\Core\MagicPillObject;
 use MagicPill\Util\Log\LogLevel;
 use MagicPill\Util\Log\Formatter\FormatterInterface;
 use MagicPill\Exception\ExceptionFactory;
 
-abstract class WriterAbstract extends Object
+abstract class WriterAbstract extends MagicPillObject
 {
     /**
      * @var integer 
@@ -69,7 +69,7 @@ abstract class WriterAbstract extends Object
     
     /**
      * Constructor
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      */
     public function __construct($config = array())
     {
@@ -79,7 +79,7 @@ abstract class WriterAbstract extends Object
     
     /**
      * Perform writer configuration
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      * @return MagicPill\Util\Log\Writer\WriterAbstract
      * @throws LogWriterInvalidConfigurationFormatException
      * @throws LogWriterInvalidFormatterException

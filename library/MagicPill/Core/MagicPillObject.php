@@ -28,33 +28,47 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category   MagicPill
- * @package    Application
+ * @package    Core
  * @copyright  Copyright (c) 2014 Joao Pinheiro
  * @version    0.9
  */
 
-namespace MagicPill\Application\Resource;
+namespace MagicPill\Core;
 
-use MagicPill\Exception\ExceptionFactory;
-use MagicPill\Util\Log\LogManager;
-
-class Log extends ResourceAbstract
+abstract class MagicPillObject
 {
     /**
-     * Config file initialization
-     * @param \MagicPill\Core\MagicPillObject $application
-     * @return \MagicPill\Collection\Dictionary
-     * @throws ResourceLogException
+     * parent object
+     * @var MagicPillObject
      */
-    public function init(\MagicPill\Core\MagicPillObject $application)
+    protected $parent = null;
+
+    /**
+     * Retrieves the parent object
+     * @return MagicPillObject
+     */
+    public function getParent()
     {
-        $result = null;
-        $config = $application->getConfig();
-        if ($config->log) {
-            $result = new LogManager($config->log);
-        } else {
-            ExceptionFactory::ResourceLogException('Log configuration not found');
-        }
-        return $result;
+        return $this->parent;
+    }
+
+    /**
+     * Defines the parent object
+     * @param MagicPillObject|null $parent
+     * @return \MagicPill\Resource\Resource
+     */
+    public function setParent($parent = null)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+    /**
+     * Retrieves the unique object identifier
+     * @return string
+     */
+    public function getObjectIdentifier()
+    {
+        return spl_object_hash($this);
     }
 }

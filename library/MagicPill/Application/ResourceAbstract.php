@@ -35,9 +35,9 @@
 
 namespace MagicPill\Application\Resource;
 
-abstract class ResourceAbstract extends \MagicPill\Core\Object implements ResourceInterface
+abstract class ResourceAbstract extends \MagicPill\Core\MagicPillObject implements ResourceInterface
 {
-    public function init(\MagicPill\Core\Object $application)
+    public function init(\MagicPill\Core\MagicPillObject $application)
     {
     }
 }

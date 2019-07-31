@@ -35,9 +35,9 @@
 
 namespace MagicPill\Util\Log\Formatter;
 
-use MagicPill\Core\Object;
+use MagicPill\Core\MagicPillObject;
 
-class DefaultFormatter extends Object implements FormatterInterface
+class DefaultFormatter extends MagicPillObject implements FormatterInterface
 {
     protected $dateFormat = \DateTime::ISO8601;
     
@@ -67,7 +67,7 @@ class DefaultFormatter extends Object implements FormatterInterface
     
     /**
      * Configure the formatter
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      */    
     public function configure($config = array())
     {

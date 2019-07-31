@@ -35,7 +35,7 @@
 
 namespace MagicPill\Exception;
 
-class ExceptionFactory extends \MagicPill\Core\Object
+class ExceptionFactory extends \MagicPill\Core\MagicPillObject
 {
     /**
      * @var string

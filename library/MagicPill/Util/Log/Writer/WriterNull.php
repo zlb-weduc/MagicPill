@@ -35,7 +35,7 @@
 
 namespace MagicPill\Util\Log\Writer;
 
-use MagicPill\Core\Object;
+use MagicPill\Core\MagicPillObject;
 use MagicPill\Util\Log\LogLevel;
 use MagicPill\Util\Log\Formatter\FormatterInterface;
 use MagicPill\Exception\ExceptionFactory;
@@ -44,7 +44,7 @@ abstract class WriterNull extends WriterAbstract
 {
     /**
      * Constructor
-     * @param array|object $config
+     * @param array|MagicPillObject $config
      */
     public function __construct($config = array())
     {

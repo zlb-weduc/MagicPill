@@ -39,10 +39,10 @@ class PhpSettings extends ResourceAbstract
 {
     /**
      * Registry initialization
-     * @param \MagicPill\Core\Object $application
+     * @param \MagicPill\Core\MagicPillObject $application
      * @return \MagicPill\Collection\Dictionary
      */
-    public function init(\MagicPill\Core\Object $application)
+    public function init(\MagicPill\Core\MagicPillObject $application)
     {
         $this->setParent($application);
         $config = $application->getConfig();

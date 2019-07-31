@@ -41,10 +41,10 @@ class Profiler extends ResourceAbstract
 {
     /**
      * Profiler initialization
-     * @param \MagicPill\Core\Object $application
+     * @param \MagicPill\Core\MagicPillObject $application
      * @return \MagicPill\Util\Debug\Profiler
      */
-    public function init(\MagicPill\Core\Object $application)
+    public function init(\MagicPill\Core\MagicPillObject $application)
     {
         $result = new Profiler();
         $result->setParent($application);

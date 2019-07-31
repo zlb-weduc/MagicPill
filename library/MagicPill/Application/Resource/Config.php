@@ -48,11 +48,11 @@ class Config extends ResourceAbstract
 
     /**
      * Config file initialization
-     * @param \MagicPill\Core\Object $application
+     * @param \MagicPill\Core\MagicPillObject $application
      * @return \MagicPill\Collection\Dictionary
      * @throws ResourceConfigException
      */
-    public function init(\MagicPill\Core\Object $application)
+    public function init(\MagicPill\Core\MagicPillObject $application)
     {
         $this->setParent($application);
         $options = $application->getApplicationOptions();
