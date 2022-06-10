@@ -68,7 +68,7 @@ class Collection implements ListInterface
             $this->fromArray($data);
         } elseif ($data instanceof Collection) {
             $this->appendFrom($data);
-        }          
+        }
     }
 
     /**
@@ -148,7 +148,7 @@ class Collection implements ListInterface
         $this->readOnly = true;
         return $this;
     }
-    
+
     /**
      * Makes the current collection read-write
      * @return $this
@@ -158,7 +158,7 @@ class Collection implements ListInterface
         $this->readOnly = false;
         return $this;
     }
-    
+
     /**
      * Returns true if the collection is empty
      * @return boolean
@@ -174,12 +174,11 @@ class Collection implements ListInterface
      * @param integer $position
      * @return $this
      */
-    public function seek($position)
+    public function seek($position) : void
     {
         if (($position < $this->count) && ($position >= 0)) {
             $this->cursor = $position;
         }
-        return $this;
     }
 
     /**
@@ -187,7 +186,7 @@ class Collection implements ListInterface
      *
      * @return mixed
      */
-    public function current()
+    public function current() : mixed
     {
         if ($this->valid()) {
             return $this->data[$this->cursor];
@@ -199,19 +198,18 @@ class Collection implements ListInterface
      * Moves cursor to next item
      * @return $this
      */
-    public function next()
+    public function next() : void
     {
         if ($this->cursor < $this->count) {
             $this->cursor++;
         }
-        return $this;
     }
 
     /**
      * Returns current offset
      * @return integer
      */
-    public function key()
+    public function key() : mixed
     {
         if ($this->valid()) {
             return $this->cursor;
@@ -223,7 +221,7 @@ class Collection implements ListInterface
      * Checks if current offset is valid
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         return ($this->cursor >= 0) && ($this->cursor < $this->count);
     }
@@ -232,21 +230,20 @@ class Collection implements ListInterface
      * Resets the internal pointer to the first element
      * @return $this
      */
-    public function rewind()
+    public function rewind() : void
     {
         if ($this->count > 0) {
             $this->cursor = 0;
         } else {
             $this->cursor = -1;
         }
-        return $this;
     }
 
     /**
      * Returns the number of elements
      * @return integer
      */
-    public function count()
+    public function count() : int
     {
         return $this->count;
     }
@@ -267,7 +264,7 @@ class Collection implements ListInterface
      * @param integer $offset
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return array_key_exists((int) $offset, $this->data);
     }
@@ -277,7 +274,7 @@ class Collection implements ListInterface
      * @param integer $offset
      * @return null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         if ($this->offsetExists($offset)) {
             return $this->data[(int) $offset];
@@ -291,7 +288,7 @@ class Collection implements ListInterface
      * @param integer $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if ($this->offsetExists($offset) && !$this->readOnly) {
             $this->data[(int) $offset] = $value;
@@ -303,7 +300,7 @@ class Collection implements ListInterface
      * Internal index association is updated to maintain behaviour like a list
      * @param integer $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         if ($this->offsetExists($offset) && !$this->readOnly) {
             unset($this->data[$offset]);
