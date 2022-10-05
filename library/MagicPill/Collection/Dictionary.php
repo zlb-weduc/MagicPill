@@ -136,7 +136,7 @@ class Dictionary implements DictionaryInterface
         $this->readOnly = true;
         return $this;
     }
-    
+
     /**
      * Makes the current dictionary read-write
      * @return $this
@@ -146,7 +146,7 @@ class Dictionary implements DictionaryInterface
         $this->readOnly = false;
         return $this;
     }
-    
+
     /**
      * Returns true if the collection is empty
      * @return boolean
@@ -160,7 +160,7 @@ class Dictionary implements DictionaryInterface
      * Returns the current value
      * @return mixed
      */
-    public function current()
+    public function current() : mixed
     {
         if ($this->valid()) {
             return current($this->data);
@@ -172,17 +172,16 @@ class Dictionary implements DictionaryInterface
      * Moves cursor to next item
      * @return $this
      */
-    public function next()
+    public function next() : void
     {
         next($this->data);
-        return $this;
     }
 
     /**
      * Returns current key
-     * @return integer
+     * @return mixed
      */
-    public function key()
+    public function key() : mixed
     {
         if ($this->valid()) {
             return key($this->data);
@@ -195,20 +194,19 @@ class Dictionary implements DictionaryInterface
      * @param string $position
      * @return $this
      */
-    public function seek($position)
+    public function seek($position) : void
     {
         reset($this->data);
         while(key($this->data) !== $position && $this->valid()) {
             next($this->data);
         }
-        return $this;
     }
 
     /**
      * Checks if current offset is valid
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         $key = key($this->data);
         return null !== $key;
@@ -218,17 +216,16 @@ class Dictionary implements DictionaryInterface
      * Resets the internal pointer to the first element
      * @return $this
      */
-    public function rewind()
+    public function rewind() : void
     {
         reset($this->data);
-        return $this;
     }
 
     /**
      * Returns the number of elements
      * @return integer
      */
-    public function count()
+    public function count() : int
     {
         return $this->count;
     }
@@ -249,7 +246,7 @@ class Dictionary implements DictionaryInterface
      * @param integer $offset
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return array_key_exists($offset, $this->data);
     }
@@ -259,7 +256,7 @@ class Dictionary implements DictionaryInterface
      * @param string|integer $offset
      * @return mixed|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         if (array_key_exists($offset, $this->data)) {
             return $this->data[$offset];
@@ -272,7 +269,7 @@ class Dictionary implements DictionaryInterface
      * @param string|integer $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (!$this->readOnly) {
             $this->data[$offset] = $value;
@@ -284,7 +281,7 @@ class Dictionary implements DictionaryInterface
      * Removes an entry from the dictionary
      * @param string|integer $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         if  (array_key_exists($offset, $this->data) && !$this->readOnly) {
             unset($this->data[$offset]);
